@@ -23,11 +23,10 @@ function Friend() {
     that.sY = -6;
   };
 
-  this.flower = function(x, y) {
-    that.x = x;
-    that.y = y - that.height;
-    that.type = 31;
-    that.sX = 32;
+  this.boy = function(x, y) {
+    that.type = 13;
+    that.sX = 0;
+    that.sY = -6;
   };
     
   this.draw = function() {

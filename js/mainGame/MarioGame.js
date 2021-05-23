@@ -831,17 +831,19 @@ function MarioGame() {
         tickCounter = 0;
         mario.frame = 12;
 
-        console.log(mario.type);
+        console.log("---->",mario.x, mario.y, maxWidth);
+        var infoPosX = Math.min(mario.x, maxWidth - 250);  
+          
         if(mario.type == "small") {
-            gameUI.writeText('Please wear your mask', mario.x, mario.y - 60);
-            gameUI.writeText('& get vaccinated, Doi 💔', mario.x, mario.y - 30);
+            gameUI.writeText('Please wear your mask',infoPosX, mario.y - 55);
+            gameUI.writeText('& get vaccinated, Doi 💔', infoPosX, mario.y - 35);
         }  
         else if(mario.type == "big") {
-            gameUI.writeText('Please get vaccinated, Doi! ❤️‍🩹', mario.x, mario.y);
+            gameUI.writeText('Please get vaccinated, Doi! ❤️‍🩹', infoPosX, mario.y-35);
         }      
         else {
-            gameUI.writeText('Thank you for taking all', mario.x, mario.y - 60);
-            gameUI.writeText('the precautions. Love you Doi! ❤️ ', mario.x, mario.y - 30);
+            gameUI.writeText('Thank you for taking all', infoPosX, mario.y - 55);
+            gameUI.writeText('the precautions. Love you Doi! ❤️ ', infoPosX, mario.y - 35);
         } 
           
         //sound when stage clears
