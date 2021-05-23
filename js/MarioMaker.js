@@ -15,7 +15,7 @@ var MarioMaker = (function() {
     var createdLevelsButton;
 
     var editorStarted = 0;
-    var musicStarted = 0;
+    var musicOn = 0;
 
     var backToMenuBtn;
     var playPauseMusicBtn;
@@ -90,7 +90,11 @@ var MarioMaker = (function() {
 
     this.startGame = function(levelMap) {
       view.style(backToMenuBtn, { display: 'block' });
-
+        
+      musicOn = 0;
+      view.addClass(playPauseMusicBtn, 'music-btn');
+      gameSound.stopMusic();  
+        
       marioGame.clearInstances();
       marioGame.init(levelMap, 1, gameSound); //initiate level 1 of map
 
@@ -138,7 +142,15 @@ var MarioMaker = (function() {
     };
     
     this.toggleMusic = function() {
-        gameSound.play('music');
+        musicOn = !musicOn;
+        if(musicOn) {
+            gameSound.play('music');
+            view.addClass(playPauseMusicBtn, 'music-btn play');
+        }
+        else {
+            gameSound.stopMusic();
+            view.addClass(playPauseMusicBtn, 'music-btn');
+        }
     }
     
     this.hideMainMenu = function() {

@@ -259,10 +259,15 @@
   width: 40px;
   height: 40px;
   color: #ffffff;
-  background: url('../images/music.png');
+  background: url('../images/music-sprites.png');
   position: absolute;
   top: 20px;
   right: 20px;
+  border: 0px;
+  background-position: -38px;
+}
+.music-btn.play {
+  background-position: 0px;
 }
 
 .start-btn {

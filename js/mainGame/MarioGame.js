@@ -76,8 +76,7 @@ function MarioGame() {
     //gameSound = new GameSound();
     //gameSound.init();
     
-    gameSound = gameSoundInstance;
-    gameSound.stopMusic();        
+    gameSound = gameSoundInstance;      
       
     that.calculateMaxWidth();
     that.bindKeyPress();
