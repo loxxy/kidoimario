@@ -255,6 +255,16 @@
   background: url('../images/bg.png');
 }
 
+.music-btn {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  background: url('../images/music.png');
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 .start-btn {
   width: 200px;
   height: 50px;

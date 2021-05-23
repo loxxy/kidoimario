@@ -15,8 +15,10 @@ var MarioMaker = (function() {
     var createdLevelsButton;
 
     var editorStarted = 0;
+    var musicStarted = 0;
 
     var backToMenuBtn;
+    var playPauseMusicBtn;
 
     //instances
     var gameSound;
@@ -30,7 +32,6 @@ var MarioMaker = (function() {
         
       gameSound = new GameSound();
       gameSound.init();
-      gameSound.play('music');
         
       marioGame = new MarioGame(gameSound);
       editor = new Editor();
@@ -41,6 +42,7 @@ var MarioMaker = (function() {
       startScreen = view.create('div');
       btnWrapper = view.create('div');
       editorButton = view.create('button');
+      playPauseMusicBtn = view.create('button');
       startGameButton = view.create('button');
       createdLevelsButton = view.create('div');
       backToMenuBtn = view.create('button');
@@ -48,10 +50,12 @@ var MarioMaker = (function() {
       view.addClass(btnWrapper, 'btn-wrapper');
       view.addClass(startScreen, 'start-screen');
       view.addClass(editorButton, 'editor-btn');
+      view.addClass(playPauseMusicBtn, 'music-btn');
       view.addClass(startGameButton, 'start-btn');
       view.addClass(createdLevelsButton, 'created-btn');
       view.addClass(backToMenuBtn, 'back-btn');
 
+      view.append(startScreen, playPauseMusicBtn);
       view.append(startScreen, editorButton);
       view.append(startScreen, startGameButton);
       view.append(startScreen, createdLevelsButton);
@@ -64,6 +68,7 @@ var MarioMaker = (function() {
       createdLevelsButton.onclick = that.startCreatedLevels;
 
       backToMenuBtn.onclick = that.backToMenu;
+      playPauseMusicBtn.onclick = that.toggleMusic;
 
       startGameButton.onclick = function() {
         map = that.loadMainGameMap();
@@ -131,7 +136,11 @@ var MarioMaker = (function() {
 
       view.style(backToMenuBtn, { display: 'none' });
     };
-
+    
+    this.toggleMusic = function() {
+        gameSound.play('music');
+    }
+    
     this.hideMainMenu = function() {
       view.style(startScreen, { display: 'none' });
     };
