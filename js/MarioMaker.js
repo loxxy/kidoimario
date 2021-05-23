@@ -19,6 +19,7 @@ var MarioMaker = (function() {
     var backToMenuBtn;
 
     //instances
+    var gameSound;
     var marioGame;
     var editor;
     var createdLevels;
@@ -26,10 +27,15 @@ var MarioMaker = (function() {
     var that = this;
 
     this.init = function() {
-      marioGame = new MarioGame();
+        
+      gameSound = new GameSound();
+      gameSound.init();
+      gameSound.play('music');
+        
+      marioGame = new MarioGame(gameSound);
       editor = new Editor();
       createdLevels = new CreatedLevels();
-
+        
       //main menu screen
       mainWrapper = view.getMainWrapper();
       startScreen = view.create('div');
@@ -81,7 +87,7 @@ var MarioMaker = (function() {
       view.style(backToMenuBtn, { display: 'block' });
 
       marioGame.clearInstances();
-      marioGame.init(levelMap, 1); //initiate level 1 of map
+      marioGame.init(levelMap, 1, gameSound); //initiate level 1 of map
 
       that.hideMainMenu();
       editor.removeEditorScreen();

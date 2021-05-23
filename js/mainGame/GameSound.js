@@ -21,7 +21,13 @@ function GameSound() {
     bullet = new Audio('sounds/bullet.wav');
     powerDown = new Audio('sounds/power-down.wav');
     jump = new Audio('sounds/jump.wav');
+    music = new Audio('sounds/music.mp3');
   };
+    
+  this.stopMusic = function() {
+      music.pause();
+      music.currentTime = 0;
+  }
 
   this.play = function(element) {
     if (element == 'coin') {
@@ -60,6 +66,10 @@ function GameSound() {
       jump.pause();
       jump.currentTime = 0;
       jump.play();
+    } else if (element == 'music') {
+      music.pause();
+      music.currentTime = 0;
+      music.play();
     }
   };
 }

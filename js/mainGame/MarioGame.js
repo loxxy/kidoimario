@@ -37,7 +37,7 @@ function MarioGame() {
   var instructionTick = 0; //showing instructions counter
   var that = this;
 
-  this.init = function(levelMaps, level) {
+  this.init = function(levelMaps, level, gameSoundInstance) {
     height = 480;
     maxWidth = 0;
     viewPort = 1280;
@@ -73,9 +73,12 @@ function MarioGame() {
       mario.frame = 0;
     }
     element = new Element();
-    gameSound = new GameSound();
-    gameSound.init();
-
+    //gameSound = new GameSound();
+    //gameSound.init();
+    
+    gameSound = gameSoundInstance;
+    gameSound.stopMusic();        
+      
     that.calculateMaxWidth();
     that.bindKeyPress();
     that.startGame();
