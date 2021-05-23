@@ -56,7 +56,7 @@ var GameUI = (function() {
     };
 
     this.writeText = function(text, x, y) {
-      ctx.font = '20px Play';
+      ctx.font = '20px Play-Regular';
       ctx.fillStyle = 'white';
       ctx.fillText(text, x, y);
     };
